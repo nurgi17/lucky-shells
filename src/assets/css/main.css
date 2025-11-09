@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  /* Playrix Colors */
+  --color-forest-dark: #032611;
+  --color-forest-medium: #063f06;
+  --color-lime-bright: #28d223;
+  --color-purple-neon: #ae00ff;
+  --color-navy-dark: #1c1751;
+  --color-violet-deep: #3c1082;
+  --color-pink-vivid: #ff6cf1;
+  --color-orange-gold: #ffb115;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cera Pro', system-ui, sans-serif;
+  background: linear-gradient(180deg, #1c1751 0%, #3c1082 100%);
+  min-height: 100vh;
+}
+
+/* Простая анимация открытия */
+@keyframes shell-open {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-shell-open {
+  animation: shell-open 0.3s ease-out;
+}
