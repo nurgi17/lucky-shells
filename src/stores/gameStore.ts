@@ -8,7 +8,7 @@ export const useGameStore = defineStore('game', {
     totalCoins: 0,
     isGameActive: false,
     isRoundComplete: false,
-    roundTimeLeft: 0,
+    // roundTimeLeft: 0,
   }),
 
   actions: {
@@ -17,7 +17,7 @@ export const useGameStore = defineStore('game', {
       this.isGameActive = true
       this.isRoundComplete = false
       this.selectedShellId = null
-      this.roundTimeLeft = 25
+      // this.roundTimeLeft = 25
 
       // Генерируем распределение призов
       const prizes = this.generatePrizes()
@@ -30,7 +30,7 @@ export const useGameStore = defineStore('game', {
       }))
 
       // Запускаем таймер раунда
-      this.startTimer()
+      // this.startTimer()
     },
 
     // Генерация призов: 3 ракушки по 5 коинов, 2 ракушки по 10 коинов, 5 ракушек по 0 коинов
@@ -75,7 +75,7 @@ export const useGameStore = defineStore('game', {
 
       // Открываем выбранную ракушку
       setTimeout(() => {
-        const selectedShell = this.shells.find(shell => shell.id === id)
+        const selectedShell = this.shells.find((shell) => shell.id === id)
         if (selectedShell) {
           selectedShell.isOpen = true
 
@@ -106,18 +106,18 @@ export const useGameStore = defineStore('game', {
       this.selectedShellId = null
       this.isGameActive = false
       this.isRoundComplete = false
-      this.roundTimeLeft = 0
+      // this.roundTimeLeft = 0
     },
 
     // Таймер раунда
-    startTimer() {
-      const interval = setInterval(() => {
-        if (this.roundTimeLeft > 0 && this.isGameActive && !this.isRoundComplete) {
-          this.roundTimeLeft--
-        } else {
-          clearInterval(interval)
-        }
-      }, 1000)
-    }
+    // startTimer() {
+    //   const interval = setInterval(() => {
+    //     if (this.roundTimeLeft > 0 && this.isGameActive && !this.isRoundComplete) {
+    //       this.roundTimeLeft--
+    //     } else {
+    //       clearInterval(interval)
+    //     }
+    //   }, 1000)
+    // },
   },
 })

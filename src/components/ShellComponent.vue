@@ -3,33 +3,22 @@
     <!-- Закрытая ракушка -->
     <div
       v-if="!shell.isOpen"
-      class="w-full h-full rounded-full flex items-center justify-center"
-      style="background: #ff8c42; box-shadow: 0 4px 0 #d4522a"
+      class="w-[241px] h-[241px] rounded-[30px] flex items-center justify-center border-7 border-solid border-[#AE00FF] shrink-0"
     >
-      <div class="text-3xl sm:text-4xl md:text-5xl">🐚</div>
+      <img src="../assets/images/busters/13-min.png" alt="" class="w-[200px] h-[200px]" />
     </div>
 
     <!-- Открытая ракушка -->
     <div
       v-else
-      class="w-full h-full rounded-full flex items-center justify-center animate-shell-open"
-      :style="{
-        background: shell.coins > 0 ? '#ffb115' : '#757575',
-        boxShadow: shell.coins > 0 ? '0 4px 0 #ff8c00' : '0 4px 0 #424242',
-      }"
+      class="w-[241px] h-[241px] rounded-[30px] flex items-center justify-center animate-shell-open border-7 border-solid border-[#AE00FF] shrink-0"
     >
       <!-- Выигрыш -->
       <div v-if="shell.coins > 0" class="flex flex-col items-center">
-        <div class="text-2xl sm:text-3xl md:text-4xl">💰</div>
-        <div
-          class="text-xs sm:text-sm md:text-base font-black text-white px-2 py-0.5 rounded-full mt-1"
-          style="background: #28d223"
-        >
-          +{{ shell.coins }}
-        </div>
+        <div class="text-[120px] font-black text-white">+{{ shell.coins }}</div>
       </div>
       <!-- Проигрыш -->
-      <div v-else class="text-2xl sm:text-3xl md:text-4xl opacity-60">❌</div>
+      <div v-else class="text-[150px] opacity-60">❌</div>
     </div>
   </div>
 </template>
