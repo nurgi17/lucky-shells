@@ -4,6 +4,7 @@
     <div
       v-if="!shell.isOpen"
       class="w-[241px] h-[241px] rounded-[30px] flex items-center justify-center border-7 border-solid border-[#AE00FF] shrink-0"
+      :class="{ 'border-[#e9b5f1] shadow-[0_0_20px_5px_rgba(192,132,252,0.8)]': isSelected }"
     >
       <img src="../assets/images/busters/13-min.png" alt="" class="w-[200px] h-[200px]" />
     </div>
@@ -11,7 +12,7 @@
     <!-- Открытая ракушка -->
     <div
       v-else
-      class="w-[241px] h-[241px] rounded-[30px] flex items-center justify-center animate-shell-open border-7 border-solid border-[#AE00FF] shrink-0"
+      class="w-[241px] h-[241px] rounded-[30px] flex items-center justify-center animate-shell-open border-7 border-solid border-[#e9b5f1] shadow-[0_0_20px_5px_rgba(192,132,252,0.8)] shrink-0"
     >
       <!-- Выигрыш -->
       <div v-if="shell.coins > 0" class="flex flex-col items-center">
