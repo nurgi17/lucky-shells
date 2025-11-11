@@ -113,19 +113,133 @@ body {
   min-height: 100vh;
 }
 
-/* Простая анимация открытия */
-@keyframes shell-open {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
+@layer utilities {
+
+  /* Idle animation for closed shells - subtle float */
+  @keyframes shell-idle {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-8px);
+    }
   }
 
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+  /* Shell opening animation - scale + rotation */
+  @keyframes shell-open {
+    0% {
+      transform: scale(1) rotateY(0deg);
+      opacity: 1;
+    }
 
-.animate-shell-open {
-  animation: shell-open 0.3s ease-out;
+    50% {
+      transform: scale(1.15) rotateY(180deg);
+      opacity: 0.8;
+    }
+
+    100% {
+      transform: scale(1) rotateY(360deg);
+      opacity: 1;
+    }
+  }
+
+  /* Win celebration animation */
+  @keyframes shell-win {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+
+    50% {
+      transform: scale(1.2);
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Losing X animation - shake + pop in */
+  @keyframes shell-lose {
+    0% {
+      transform: scale(0) rotate(0deg);
+      opacity: 0;
+    }
+
+    50% {
+      transform: scale(1.3) rotate(180deg);
+      opacity: 1;
+    }
+
+    70% {
+      transform: scale(0.9) rotate(360deg);
+    }
+
+    100% {
+      transform: scale(1) rotate(360deg);
+      opacity: 1;
+    }
+  }
+
+  /* Shake animation for losing */
+  @keyframes shake {
+
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translateX(-10px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translateX(10px);
+    }
+  }
+
+  /* Glow pulse for selected shell */
+  @keyframes glow-pulse {
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px 5px rgba(192, 132, 252, 0.8);
+    }
+
+    50% {
+      box-shadow: 0 0 30px 8px rgba(192, 132, 252, 1);
+    }
+  }
+
+  .animate-shell-idle {
+    animation: shell-idle 1.5s ease-in-out infinite;
+  }
+
+  .animate-shell-open {
+    animation: shell-open 2.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+
+  .animate-shell-win {
+    animation: shell-win 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+
+  .animate-shell-lose {
+    animation: shell-lose 2.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
+      shake 1.6s ease-in-out 1.2s;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
 }
