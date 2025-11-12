@@ -89,7 +89,7 @@ export const useGameStore = defineStore('game', {
           // Завершаем раунд
           setTimeout(() => {
             this.completeRound()
-          }, 3000)
+          }, 4000)
         }
       }, 500)
     },
