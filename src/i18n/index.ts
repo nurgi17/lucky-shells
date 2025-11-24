@@ -1,8 +1,8 @@
 import { createI18n } from 'vue-i18n'
 
 const i18n = createI18n({
-  locale: 'ru',
-  fallbackLocale: 'en',
+  locale: 'en',
+  fallbackLocale: 'ru',
   messages: {
     ru: {
       lucky: 'LUCKY',
@@ -18,13 +18,13 @@ const i18n = createI18n({
     en: {
       lucky: 'LUCKY',
       shells: 'SHELLS',
-      startGame: 'начать игру',
+      startGame: 'start game',
       tryAgain: 'try again',
       congrats: 'congratulations!',
       newGame: 'new game',
       ok: 'ok',
-      choose: 'Выбери свою',
-      shell: 'ракушку удачи!',
+      choose: 'Choose your',
+      shell: 'lucky shell!',
     },
   },
 })
